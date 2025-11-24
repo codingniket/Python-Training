@@ -71,3 +71,5 @@ x.insert(2,"Man")
 
 x.remove("Man")
 
+x.pop(2)
+
