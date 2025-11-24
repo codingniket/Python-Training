@@ -53,3 +53,21 @@ for i in range(1,4):
     if i == 2:
         pass
     print(i)
+
+
+    # List
+x=[1,2,3]
+print(x[0])
+print(x[1])
+print(x[2])
+
+y=[9,0,8]
+
+print(y)
+
+x.append(9)
+
+x.insert(2,"Man")
+
+x.remove("Man")
+
