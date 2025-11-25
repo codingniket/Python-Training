@@ -1,11 +1,10 @@
 nums = [0, 3, 0, 5, 7, 0, 9]
-c = 0
-ans=[]
-for num in nums:
-    if num == 0:
+l = len(nums)
+ans=[0]*l
+c=0
+for i in range(l):
+    if nums[i] != 0:
+        ans[c]=nums[i]
         c+=1
-    else:
-        ans.append(num)
-x = [0]*c
-ans.append(x)
+
 print(ans)
