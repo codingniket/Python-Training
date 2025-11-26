@@ -1,1 +1,97 @@
 # Python-Training
+
+Welcome to the Python-Training repo! 🎯
+
+This repository collects small, single-file Python programs and examples organized by date (each folder is a day of practice). The goal is to learn basic Python syntax, fundamental data structures, simple algorithms, and OOP concepts across short, focused exercises.
+
+How to use this repo
+--------------------
+- Each day folder is named with a date (e.g., `24-11-2025`). For readability, this README renames each folder as "Day N - Folder Name".
+- To run a script: open a terminal and run `python3 <scriptname>.py` from the respective day folder (many scripts read stdin so they will prompt for input).
+- These scripts are mostly standalone practice files; some are purely demonstrative and include `print` statements to show behavior.
+
+Structure & Day-by-day summary
+------------------------------
+Below you will find a compact, well-organized summary for each day including file names and one-line descriptions.
+
+### Day 1 - `24-11-2025` 📅
+Files and short descriptions:
+
+- `Age_In_2050.py` — Calculate age in the year 2050 from the given birth year.
+- `Area.py` — Compute area of a rectangle (length × width).
+- `Basic_Operation.py` — Basic arithmetic operations (add, subtract, multiply, divide).
+- `Basic.py` — Introduction to Python: prints, variables, arithmetic, loops, conditions, list basics.
+- `Introduction to Python Document.docx` — Course or lesson material (document file for reference).
+- `Last Digit.py` — Print the last digit of an input number.
+- `Login_Password.py` — Simple username/password check (hard-coded check for `admin/1234`).
+- `N_Natural_Numbers.py` — Sum of first N natural numbers (using formula).
+- `Number.py` — Determine whether a number is positive, negative, or zero.
+- `NumberOfDigit.py` — Count digits in an integer.
+- `Odd_Even.py` — Check even/odd of a number.
+- `Reverse.py` — Reverse the digits of an integer.
+- `Square_Cube.py` — Compute square and cube for a number (simple demo).
+- `Swap_Numbers.py` — Swap two numbers using arithmetic operations (no temp variable).
+- `Table.py` — Display multiplication table for a number.
+- `Time.py` — Convert minutes to hours and minutes.
+
+What was covered on Day 1
+------------------------
+- Basic syntax and print statements
+- Variables, arithmetic, and operators
+- Conditional statements and loops
+- Simple I/O using `input()`
+- Elementary problem solving with numeric manipulations
+
+### Day 2 - `25-11-2025` 📅
+Files and short descriptions:
+
+- `Basic_dictionary.py` — Simple dictionary usage and operations.
+- `Basic_Sets.py` — Demonstrating Python `set` operations: add, update, union, intersection, difference.
+- `Create_New_List_of_Squares.py` — Build a list of squares (list comprehension / loop demo).
+- `DIsjoint.py` — Check whether two sets are disjoint.
+- `Department Count.py` — Count occurrences by department (basic frequency/counting example).
+- `Duplicate.py` — Find duplicate elements in a list.
+- `Extract_Only_Prime_Numbers.py` — Filter/screen prime numbers from a list.
+- `Find_All_Indices_of_Given_Value.py` — Find all indices of a given value in a list.
+- `Flattend List.py` — Flatten nested lists into a single list.
+- `Increasing Tuple.py` — Work with tuples and check increasing or order operations.
+- `Index.py` — Demonstrate list/tuple index usage.
+- `Interchange_First_and_Last Elements.py` — Swap first and last elements in a list.
+- `Less Than 100.py` — Filter numbers less than 100 from a list.
+- `List_Baisc.py` — Demonstrate list and tuple basics (slicing, methods, tuple unpacking).
+- `Max Marks.py` — Compute maximum marks (or similar aggregation by dataset).
+- `Merge Dict.py` — Merge two dictionaries.
+- `More_Than_3_Words.py` — Filter strings with more than 3 words/length or criteria.
+- `Move_All_Zeros_to_the_End.py` — Move zeros to the end of a list while preserving order of other elements.
+- `Negative_Positive.py` — Separate negative and positive numbers into separate lists.
+- `Number_String_Tuple.py` — Convert numbers to strings inside tuples (or handling tuple values).
+- `Recursion.py` — Recursion example (e.g., factorial, fibonacci) or demonstration of recursive logic.
+- `Reverse_Tuple.py` — Reverse a tuple or similar tuple transformations.
+- `RotateN.py` — Rotate list elements by N positions.
+- `Second_Largest_Number.py` — Find the second largest number in a list.
+- `Separate_Even_Odd_into_Two_Lists.py` — Split a list into even and odd numbers.
+- `Set_Target.py` — Solve set-target or subset related problem.
+- `Set_in_order.py` — Sort or maintain set order (convert to list and sort).
+- `Sets Union.py` — Demonstrate union operation on sets.
+- `Swap Key And Value.py` — Swap keys and values of a dictionary.
+- `unique characters.py` — Extract or count unique characters from a string.
+
+What was covered on Day 2
+------------------------
+- Collection types and operations (list, tuple, set, dict)
+- Common list transformations (filtering, rotating, flattening)
+- Mutable vs immutable: tuples vs lists
+- Simple algorithms: prime-checking, duplication detection, and counting
+
+### Day 3 - `26-11-2025` 📅
+Files and short descriptions:
+
+- `Bank Account.py` — OOP practice around bank account operations (deposit, withdraw, balance).
+- `Basic_Class.py` — Introduction to Python classes, objects, and methods (simple demo).
+- `Calculator_Class.py` - Just a simple Calculator to demonstarte basic operations.
+
+What was covered on Day 3
+------------------------
+- Basic Object-Oriented Programming in Python
+- How to design a simple class: methods, attributes, and object state
+
