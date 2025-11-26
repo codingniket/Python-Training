@@ -16,3 +16,6 @@ class Product:
 
 cal = Product("Amul Milk",180,10)
 cal.display()
+
+
+
