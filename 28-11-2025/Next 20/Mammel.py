@@ -1,14 +1,14 @@
-class Mammel:
+class Mammal:
     def sound(self):
-        print("Zindagi ki saath zindagi ka baad bhi")
+        print("Mammal")
 
-class Dog(Mammel):
+class Dog(Mammal):
     def sound(self):
         print("Bark Bark")
 
-class Cat(Mammel):
+class Cat(Mammal):
     def sound(self):
-        print("Miow Moiw")
+        print("Mio Mio")
 
 
 x = Dog()

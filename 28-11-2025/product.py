@@ -3,7 +3,7 @@ def printing():
         content = file.read()
         x = content.split("\n")
 
-    with open("catlog.txt","a") as file:
+    with open("catalog.txt","a") as file:
         file.write("Product     Price")
         for i in x:
             a,b = i.split(" ")

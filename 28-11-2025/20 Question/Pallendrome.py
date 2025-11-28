@@ -1,4 +1,4 @@
-ip = input("Enter message/word: ")
+p = input("Enter message/word: ")
 def check(ip):
     j = len(ip)-1
     for i in range(len(ip) // 2):
@@ -7,8 +7,8 @@ def check(ip):
             continue
         else:
             print("Not a palindrome")
-            return
+            return None
     return True
 
-if check(ip):
+if check(p):
     print("Palindrome")

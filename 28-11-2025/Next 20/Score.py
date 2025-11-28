@@ -1,6 +1,6 @@
 class Score:
-    def add(self,*args):
+    def cal(self,*args) -> int:
         return sum(args)
 
 x = Score()
-print(x.add(3,4))
+print(x.cal(3,4,7,8,8,9,7,2))

@@ -10,5 +10,5 @@ class Book:
         else:
             print(f"Book {self.title} has {self.pages} pages and is Not Eligible")
 
-x = Book("Tilak", "Laal Mohan", 360)
+x = Book("Joy of night", "John Doe", 360)
 x.check_pages()

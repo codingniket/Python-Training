@@ -4,9 +4,9 @@ class Vehicle :
         self.distance = distance
 
     def start(self):
-        print('Car Sound Boom Boom')
+        print('Starting in a minute')
 
-    def milage(self,fuel,distance):
+    def mileage(self,fuel,distance):
         a=distance//fuel
         print(f"Your car provide mileage of {a} miles:",)
 
@@ -18,7 +18,7 @@ class Car(Vehicle):
         super().__init__(fuel,distance)
 
     def start(self):
-        print('Jassi bhai is a game changer player')
+        print('Car started')
 
 
 

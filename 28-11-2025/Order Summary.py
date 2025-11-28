@@ -10,5 +10,5 @@ def invoice(a,b,c):
 bill = lambda name,qty,price: f"{name} = {qty} x {price}"
 
 x = input("Enter your name qty item")
-a,b,c = x.split(" ")
-invoice(a,b,c)
+g,h,j = x.split(" ")
+invoice(g,h,j)
