@@ -1,0 +1,2 @@
+aloo = 1 x 21
+Total Payable = 21

@@ -1,0 +1,2 @@
+Laptop 50000
+Mouse 300

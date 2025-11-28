@@ -1,0 +1,4 @@
+
+Number of ERROR Lines 2
+Number of INFO Lines 2
+Number of WARNING Lines 2
