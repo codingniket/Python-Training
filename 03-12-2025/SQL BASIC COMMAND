@@ -1,0 +1,128 @@
+** Creation of DB **
+CREATE DATABASE college_db;
+USE college_db;
+
+** Creation of Table **
+CREATE TABLE students (
+student_id INT AUTO_INCREMENT PRIMARY KEY,
+first_name VARCHAR(30),
+last_name VARCHAR(50),
+email VARCHAR(100),
+age INT,
+city VARCHAR(50)
+);
+
+** Inserting Values in DB **
+INSERT INTO students (first_name, last_name, email, age, city)
+VALUES
+('Bob', 'John', 'bob@gmail.com', 22, 'Kochi'),
+('Eze', 'Boi', 'eze@gmail.com', 24, 'Kolkata');
+
+SELECT * FROM students;
+
+** Selecting Specific Thing **
+SELECT first_name,last_name
+FROM students
+WHERE city = "Kolkata"
+
+** Ordering By age **
+SELECT first_name,last_name
+FROM students
+ORDER BY age DESC
+
+** Updating City **
+UPDATE students
+SET city = "Banglore"
+WHERE student_id = 2;
+
+** Updating Lastname **
+UPDATE students
+SET city = "Arteta"
+WHERE email = "eze@gmail.com";
+
+** DELETE A RECORD **
+DELETE FROM students
+WHERE student_id = 2;
+
+** DELETE A RECORD **
+DELETE FROM students
+WHERE city = "DELHI";
+
+** Deleting Table EVEN SCHEMA **
+DROP TABLE students
+
+** Deleting DATABASE **
+DROP DATABASE college_db
+
+
+** JOIN COMMAND **
+CREATE DATABASE company_db;
+USE company_db;
+
+CREATE TABLE department (
+dept_id INT PRIMARY KEY,
+dept_name VARCHAR(30),
+location VARCHAR(50)
+);
+
+CREATE TABLE employees (
+emp_id INT PRIMARY KEY,
+emp_name VARCHAR(30),
+email VARCHAR(100),
+salary INT(7),
+dept_id INT NULL
+);
+
+INSERT INTO department (dept_id, dept_name, location)
+VALUES
+(10, 'HR', 'Mumbai'),
+(20, 'Finance', 'Delhi'),
+(30, 'IT', 'Bangalore'),
+(40, 'Marketing', 'Chennai'),
+(50, 'Admin', 'Hyderabad');
+
+INSERT INTO employees (emp_id, emp_name, email, salary, dept_id)
+VALUES
+(101, 'Aisha Khan', 'aisha@company.com', 60000, 10),
+(102, 'Rahul Sharma', 'rahul@company.com', 72000, 20),
+(103, 'Meera Iyer', 'meera@company.com', 50000, 30),
+(104, 'Imran Ali', 'imran@company.com', 65000, NULL),
+(105, 'Sanjay Patel', 'sanjay@company.com', 45000, NULL),
+(106, 'David John', 'david@company.com', 90000, 40);
+
+** INNER JOIN **
+SELECT e.emp_id, e.emp_name, d.dept_name, d.location
+FROM employees e
+INNER JOIN department d
+ON e.dept_id = d.dept_id;
+
+** LEFT JOIN **
+SELECT e.emp_id, e.emp_name, d.dept_name, d.location
+FROM employees e
+LEFT JOIN department d
+ON e.dept_id = d.dept_id;
+
+** RIGHT JOIN **
+SELECT e.emp_id, e.emp_name, d.dept_name, d.location
+FROM employees e
+RIGHT JOIN department d
+ON e.dept_id = d.dept_id;
+
+** OUTER JOIN OR CROSS JOIN**
+SELECT e.emp_id, e.emp_name, d.dept_name, d.location
+FROM employees e
+CROSS JOIN department d
+
+
+** FULL JOIN OR UNION **
+SELECT e.emp_id, e.emp_name, d.dept_name, d.location
+FROM employees e
+LEFT JOIN department d
+ON e.dept_id = d.dept_id
+
+UNION
+
+SELECT e.emp_id, e.emp_name, d.dept_name, d.location
+FROM employees e
+RIGHT JOIN department d
+ON e.dept_id = d.dept_id;

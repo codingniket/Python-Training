@@ -1,0 +1,224 @@
+
+CREATE DATABASE retail_db;
+USE retail_db;
+
+
+CREATE TABLE customers (
+customer_id INT PRIMARY KEY,
+customer_name VARCHAR(50),
+email VARCHAR(80),
+city VARCHAR(50)
+);
+
+CREATE TABLE orders (
+order_id INT PRIMARY KEY,
+order_date DATE,
+customer_id INT NULL,
+total_amount DECIMAL(10,2),
+product_id INT NULL
+);
+
+CREATE TABLE products (
+product_id INT PRIMARY KEY,
+product_name VARCHAR(100),
+category VARCHAR(50),
+price DECIMAL(10,2)
+);
+
+1.
+SELECT c.customer_name, c.email , o.order_id
+FROM customers c
+INNER JOIN orders o
+ON o.customer_id = c.customer_id;
+
+2.
+SELECT p.product_name, p.category , p.price
+FROM products p
+INNER JOIN orders o
+ON o.product_id = p.product_id;
+
+3.
+SELECT p.product_name, c.customer_name, o.order_id
+FROM products p
+INNER JOIN orders o ON o.product_id = p.product_id
+INNER JOIN customers c ON o.customer_id = c.customer_id;
+
+4.
+SELECT c.customer_name, o.total_amount
+FROM orders o
+INNER JOIN customers c ON o.customer_id = c.customer_id
+WHERE o.order_id IS NOT NULL;
+
+5.
+SELECT p.product_name, o.order_id
+FROM products p
+INNER JOIN orders o ON o.product_id = p.product_id
+WHERE p.category = 'Electronics'
+
+6.
+SELECT p.product_name, c.customer_name, o.order_id
+FROM products p
+INNER JOIN orders o ON o.product_id = p.product_id
+INNER JOIN customers c ON o.customer_id = c.customer_id
+WHERE p.category = 'Fashion';
+
+7.
+SELECT p.product_name, c.customer_name, o.order_id,o.total_amount
+FROM products p
+INNER JOIN orders o ON o.product_id = p.product_id
+INNER JOIN customers c ON o.customer_id = c.customer_id
+WHERE o.total_amount > 1000;
+
+8.
+SELECT c.customer_name, o.order_id
+FROM customers c
+RIGHT JOIN orders o ON o.customer_id = c.customer_id
+WHERE c.city = "Mumbai";
+
+9.
+SELECT c.customer_name, COUNT(o.customer_id)
+FROM customers c
+INNER JOIN orders o ON o.customer_id = c.customer_id
+GROUP BY o.customer_id;
+
+10.
+SELECT c.customer_name, COUNT(o.customer_id) as "Number of Order", SUM(o.total_amount) as "Total Spend"
+FROM customers c
+INNER JOIN orders o ON o.customer_id = c.customer_id
+GROUP BY o.customer_id;
+
+11.
+SELECT c.customer_name, o.order_id
+FROM orders o
+LEFT JOIN customers c ON o.customer_id = c.customer_id;
+
+12.
+SELECT c.customer_name, o.order_id
+FROM orders o
+LEFT JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.customer_name is NULL;
+
+13.
+SELECT c.customer_name, o.order_id, c.city
+FROM orders o
+LEFT JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.customer_name is NULL;
+
+14.
+SELECT c.customer_name, COUNT(o.customer_id)
+FROM customers c
+LEFT JOIN orders o ON o.customer_id = c.customer_id
+GROUP BY c.customer_id;
+
+15.
+SELECT c.customer_name
+FROM customers c
+LEFT JOIN orders o ON o.customer_id = c.customer_id
+WHERE o.order_id is NULL
+
+16.
+
+17.
+SELECT p.product_name,p.product_id,o.order_id
+FROM products p
+RIGHT JOIN orders o ON o.product_id = p.product_id
+WHERE p.product_id is NULL
+
+18.
+SELECT c.customer_name,c.city,o.order_id
+FROM customers c
+RIGHT JOIN orders o ON o.customer_id = c.customer_id
+WHERE c.city is NULL OR c.city = "Delhi"
+
+
+19.
+SELECT customer_id,COUNT(order_id)
+FROM orders
+GROUP BY customer_id
+
+20.
+SELECT
+    (COUNT(CASE WHEN customer_id IS NULL THEN 1 END) * 100.0 / COUNT(*)) AS "pct_missing_customers"
+FROM orders;
+
+21.
+SELECT o.order_id,p.product_name
+FROM orders o
+RIGHT JOIN products p ON p.product_id = o.product_id
+WHERE o.order_id is NULL OR o.product_id is NULL
+
+UNION
+
+SELECT o.order_id,p.product_name
+FROM orders o
+LEFT JOIN products p ON p.product_id = o.product_id
+WHERE o.order_id is NULL OR o.product_id is NULL
+
+22.
+SELECT o.order_id, o.product_id, p.product_name
+FROM orders o
+LEFT JOIN products p ON p.product_id = o.product_id
+WHERE p.product_id IS NULL;
+
+23.
+SELECT p.product_name, COUNT(o.order_id) AS order_count
+FROM products p
+INNER JOIN orders o ON o.product_id = p.product_id
+WHERE p.category = 'Electronics'
+GROUP BY p.product_name;
+
+24.
+SELECT p.product_name, o.order_date
+FROM products p
+INNER JOIN orders o ON o.product_id = p.product_id
+WHERE p.category = 'Groceries'
+ORDER BY o.order_date ASC
+
+25.
+SELECT p.product_name, SUM(o.total_amount)
+FROM products p
+RIGHT JOIN orders o ON o.product_id = p.product_id
+GROUP BY p.product_name
+
+UNION
+
+SELECT p.product_name, SUM(o.total_amount)
+FROM products p
+LEFT JOIN orders o ON o.product_id = p.product_id
+GROUP BY p.product_name
+
+26.
+SELECT p.category, COUNT(p.product_name)
+FROM products p
+RIGHT JOIN orders o ON o.product_id = p.product_id
+GROUP BY p.category
+
+UNION
+
+SELECT p.category, COUNT(p.product_name)
+FROM products p
+LEFT JOIN orders o ON o.product_id = p.product_id
+GROUP BY p.category
+
+27.
+SELECT c.customer_name, o.order_id, p.product_name
+FROM customers c
+LEFT JOIN orders o ON o.customer_id = c.customer_id
+LEFT JOIN products p ON p.product_id = o.product_id
+WHERE c.city = "Bangalore";
+
+28.
+SELECT p.product_id, p.product_name
+FROM products p
+LEFT JOIN orders o ON o.product_id = p.product_id
+WHERE o.order_id IS NULL;
+
+29.
+
+30.
+SELECT DISTINCT p.product_id,
+       p.product_name
+FROM products p
+INNER JOIN orders o
+       ON o.product_id = p.product_id
+WHERE o.customer_id IS NULL;
