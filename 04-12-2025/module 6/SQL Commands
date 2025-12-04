@@ -1,0 +1,116 @@
+1.
+CREATE DATABASE retail_app;
+USE retail_app;
+
+CREATE TABLE customers (
+customer_id INT PRIMARY KEY,
+customer_name VARCHAR(50),
+email VARCHAR(80),
+city VARCHAR(50)
+);
+
+CREATE TABLE orders (
+order_id INT PRIMARY KEY,
+order_date DATE,
+customer_id INT NULL,
+total_amount DECIMAL(10,2),
+product_id INT NULL
+);
+
+CREATE TABLE products (
+product_id INT PRIMARY KEY,
+product_name VARCHAR(100),
+category VARCHAR(50),
+price DECIMAL(10,2)
+);
+
+INSERT INTO customers (customer_id, customer_name, email, city)
+VALUES
+(1, 'Alice Johnson', 'alice.johnson@example.com', 'New York'),
+(2, 'Bob Smith', 'bob.smith@example.com', 'Los Angeles'),
+(3, 'Charlie Brown', 'charlie.brown@example.com', 'Chicago'),
+(4, 'Diana Prince', 'diana.prince@example.com', 'Houston'),
+(5, 'Ethan Hunt', 'ethan.hunt@example.com', 'Miami');
+
+INSERT INTO orders (order_id, order_date, customer_id, total_amount, product_id)
+VALUES
+(101, '2025-01-10', 1, 1200.50, 501),
+(102, '2025-01-12', 2, 800.00, 502),
+(103, '2025-01-15', 1, 25.75, 503),
+(104, '2025-01-18', 3, 600.00, 504),
+(105, '2025-01-20', 4, 150.00, 505);
+
+INSERT INTO products (product_id, product_name, category, price) VALUES
+(1, 'Laptop', 'Electronics', 1200.00),
+(2, 'Smartphone', 'Electronics', 800.00),
+(3, 'Office Chair', 'Furniture', 150.00),
+(4, 'Running Shoes', 'Sportswear', 75.50),
+(5, 'Coffee Maker', 'Appliances', 99.99);
+
+
+
+2.
+SELECT c.customer_id,c.customer_name, COUNT(o.order_id)
+FROM customers c
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+WHERE o.order_id > 2
+GROUP BY c.customer_id;
+
+3.
+SELECT p.product_name
+FROM products p
+LEFT JOIN orders o ON p.product_id = o.product_id
+WHERE o.order_id is NULL;
+
+4.
+SELECT c.customer_id,c.customer_name, COUNT(o.order_id), SUM(o.total_amount) as "Total Spend"
+FROM customers c
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+GROUP BY c.customer_id;
+
+5.
+SELECT c.customer_id,c.customer_name, o.order_id
+FROM customers c
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+
+6.
+SELECT p.product_id,p.product_name,p.category,p.price,o.order_id,o.order_date,o.customer_id,o.total_amount
+FROM orders o
+RIGHT JOIN products p
+ON o.product_id = p.product_id;
+
+7.
+SELECT  c.customer_name, COUNT(DISTINCT p.category)
+FROM products p
+INNER JOIN orders o ON o.product_id = p.product_id
+INNER JOIN customers c ON o.customer_id = c.customer_id
+GROUP BY c.customer_id
+HAVING COUNT(DISTINCT p.category) > 1
+
+8.
+SELECT order_id,total_amount
+FROM orders
+ORDER BY total_amount DESC
+LIMIT 3
+
+9.
+SELECT order_id,product_id,customer_id
+FROM orders
+WHERE product_id is NULL OR customer_id is NULL
+
+10.
+SELECT
+    c.customer_id,
+    c.customer_name,
+    MONTH(o.order_date) AS order_month,
+    SUM(o.total_amount) AS total_amount
+FROM customers c
+INNER JOIN orders o
+    ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.customer_name, MONTH(o.order_date)
+ORDER BY c.customer_id, order_month;
+11.
+SELECT c.customer_id, c.customer_name, p.product_id, p.product_name,p.category,p.price
+FROM customers c
+CROSS JOIN products p
+ORDER BY c.customer_id, p.product_id;
