@@ -87,11 +87,61 @@ What was covered on Day 2
 Files and short descriptions:
 
 - `Bank Account.py` — OOP practice around bank account operations (deposit, withdraw, balance).
+- `BankAccount.py` — Alternative implementation of bank account class.
 - `Basic_Class.py` — Introduction to Python classes, objects, and methods (simple demo).
-- `Calculator_Class.py` - Just a simple Calculator to demonstarte basic operations.
+- `Calculator_Class.py` — Simple calculator class to demonstrate basic OOP operations.
+- `Loyalty.py` — Loyalty program or membership class demonstration.
+- `Mobile.py` — Mobile phone class with properties and methods.
+- `Product.py` — Product class for e-commerce or inventory system.
+- `Shopping Cart.py` — Shopping cart implementation with add/remove/total operations.
+- `ShoppingCart.py` — Alternative shopping cart implementation.
+- `Student Grades.py` — Student grades management class.
+- `Student Marks.py` — Student marks tracking and calculation.
 
-What was covered on Day 3
-------------------------
-- Basic Object-Oriented Programming in Python
-- How to design a simple class: methods, attributes, and object state
+### Day 4 - `27-11-2025` 📅
+Files and short descriptions:
+
+- `Inheritence Basic.py` — Introduction to inheritance with base and derived classes.
+- `File Handling.py` — File I/O operations (read, write, append).
+- `Method Overloading.py` — Demonstrating method overloading patterns in Python.
+- `Method Overrinding.py` — Showing method overriding in inheritance.
+- `Payment with Overriding.py` — Payment system with method overriding examples.
+- `Payment.py` — Basic payment class implementation.
+- `sample.txt` — Sample text file for file handling demonstrations.
+- **Folders:** `File Handling/`, `Single Heritence/`, `Hierarchical Inheritance/`, `Multilevel Inheritance/`, `Multiple Inheritance/`
+
+### Day 5 - `28-11-2025` 📅
+Files and short descriptions:
+
+- `Attdence.py` — Attendance management system (tracking attendance records).
+- `Email.py` — Email sending or email validation utilities.
+- `Error.py` — Error handling and exception demonstrations.
+- `Expense.py` — Expense tracking or budget management.
+- `Lambda Basic.py` — Lambda functions and functional programming basics.
+- `Order Summary.py` — Order summary report generation.
+- `Order.py` — Order class implementation.
+- `Phone.py` — Phone number validation or phone contact utilities.
+- `Quiz.py` — Quiz or questionnaire implementation.
+- `System.py` — System utilities or system-level operations.
+- `Welcome.py` — Welcome screen or greeting program.
+- `certificate.py` — Certificate generation or management.
+- `product.py` — Product-related utilities (alternative to Product.py from Day 3).
+- **Data/Log files:** `attdence.log`, `catlog.txt`, `contact.csv`, `contacts_export.txt`, `error.log`, `log_summary.txt`, `order_summary.txt`, `orders.csv`, `products.txt`, `questions.txt`, `report.txt`, `students.txt`, `user.txt`, `welcome.txt`
+- **Folders:** `20 Question/`, `Next 20/`
+
+### Day 6 - `02-12-2025` 📅
+Files and short descriptions:
+
+- `excercise.py` — Practice exercises (likely covering Pandas or data manipulation).
+- `pandas_basic.py` — Pandas DataFrame basics and operations.
+- `data.csv` — Sample dataset for data analysis.
+- `student.csv` — Student records dataset.
+- **Folder:** `sql/` — SQL-related exercises and scripts.
+
+### Day 7 - `03-12-2025` 📅
+Files and short descriptions:
+
+- `db connection.py` — Database connection utilities and setup.
+- `Excercise.txt` — Exercise description or assignment details.
+- `SQL BASIC COMMAND` — SQL command reference or examples.
 
