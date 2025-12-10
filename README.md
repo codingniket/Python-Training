@@ -194,4 +194,8 @@ Files and short descriptions:
 - `Employee.py` — Employee class and management operations.
 - `Flask basic.py` — Introduction to Flask web framework basics.
 - `Sir Code.py` — Example or reference code provided by instructor.
+- 
+### Day 11 - `10-12-2025` 📅
+Django
+
 
