@@ -145,3 +145,53 @@ Files and short descriptions:
 - `Excercise.txt` — Exercise description or assignment details.
 - `SQL BASIC COMMAND` — SQL command reference or examples.
 
+### Day 8 - `04-12-2025` 📅
+Files and short descriptions:
+
+- `Admin.py` — Admin management or role-based access control class.
+- `Bank Account.py` — Bank account operations (another iteration/variation).
+- `CSV to JSON.py` — Convert CSV data to JSON format.
+- `Comman Elements in 3 sets.py` — Find common elements across three sets.
+- `Electronic Warrenty.py` — Electronic warranty management system.
+- `Employee Salary More than 60000.py` — Filter employees with salary > 60000.
+- `Flattend List.py` — Flatten nested/multi-dimensional lists.
+- `Library.py` — Library management system (books, borrowing, etc.).
+- `List Of Tuple to Dictionary.py` — Convert list of tuples to dictionary.
+- `List to Dictionary.py` — Convert list to dictionary.
+- `Log timming.py` — Log timing information for operations.
+- `Payment Class.py` — Payment processing class.
+- `Product json discount.py` — Apply discounts to products in JSON.
+- `Reading 20 names.py` — Read and process 20 names from input/file.
+- `Reading File.py` — File reading operations and demonstrations.
+- `Reading List Comprehention.py` — List comprehension examples and usage.
+- `Remove Duplicate from list.py` — Remove duplicate elements from lists.
+- `Reversing Alternate in List.py` — Reverse alternate elements in a list.
+- `Seconde Highest Value.py` — Find the second highest value in a dataset.
+- `Shopping Cart.py` — Shopping cart with add/remove/checkout operations.
+- `Student Grade Card.py` — Generate student grade card/report.
+- `Student Marks Dictionary.py` — Student marks stored and queried from dictionary.
+- `Tuple with Unique name.py` — Work with tuples containing unique names.
+- `Two Dictionary sum them for matching keys.py` — Merge/sum two dictionaries by keys.
+- `Vechile Class.py` — Vehicle class for OOP demonstration.
+- `Writting two files.py` — Write data to multiple files simultaneously.
+- `mini calculator.py` — Basic calculator operations (add, subtract, multiply, divide).
+- `word frequency dictionary.py` — Count and store word frequencies in a dictionary.
+- `vowel consunants and digits.py` — Classify and count vowels, consonants, and digits.
+- **Data/Config files:** `data.log`, `input1.txt`, `input2.txt`, `item.csv`, `product.json`, `products.json`, `text`
+- **Folders:** `module 5/`, `module 6/`, `module 7/`
+
+### Day 9 - `05-12-2025` 📅
+Files and short descriptions:
+
+- `datetime basics.py` — DateTime module basics (date, time, timedelta).
+- `Public Private and Encapsulation.py` — Encapsulation and public/private access patterns in OOP.
+- **Folders:** `CASE STUDY/` — Real-world case study projects, `Real-World Use Cases DateTime/` — DateTime practical applications.
+
+### Day 10 - `08-12-2025` 📅
+Files and short descriptions:
+
+- `Employee + SQL.py` — Employee management with SQL integration.
+- `Employee.py` — Employee class and management operations.
+- `Flask basic.py` — Introduction to Flask web framework basics.
+- `Sir Code.py` — Example or reference code provided by instructor.
+
