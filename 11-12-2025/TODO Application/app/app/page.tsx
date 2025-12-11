@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     const run = async () => {
       try {
-        const res = await fetch("http://localhost:5000/", { method: "GET" });
+        const res = await fetch("http://localhost:5000/todo/", { method: "GET" });
         if (!res.ok) {
           const text = await res.text();
           throw new Error(`HTTP ${res.status}: ${text}`);
@@ -28,62 +28,124 @@ export default function Home() {
     run();
   }, []);
 
+// Flask was working fine
   // Toggle status: Pending -> Completed, Completed -> Pending
-  const toggleStatus = async (id, currentStatus) => {
-    const nextStatus =
-      String(currentStatus || "").trim().toLowerCase() === "pending"
-        ? "Completed"
-        : "Pending";
+//   const toggleStatus = async (id, currentStatus) => {
+//     const nextStatus =
+//       String(currentStatus || "").trim().toLowerCase() === "pending"
+//         ? "Completed"
+//         : "Pending";
+//
+//     // Optimistic update
+//     setUpdatingId(id);
+//     const prevTasks = tasks;
+//     setTasks((prev) =>
+//       prev.map((t) => (t[0] === id ? [t[0], t[1], t[2], nextStatus, t[4]] : t))
+//     );
+//
+//     try {
+//       const res = await fetch(`http://localhost:5000/todo/update/${id}/`, {
+//         method: "PUT",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({ status: nextStatus }),
+//       });
+//       if (!res.ok) {
+//         const text = await res.text();
+//         throw new Error(`HTTP ${res.status}: ${text}`);
+//       }
+//     } catch (e) {
+//       console.error(e);
+//       setErr(e.message || "Failed to update");
+//       setTasks(prevTasks); // rollback on error
+//     } finally {
+//       setUpdatingId(null);
+//     }
+//   };
 
-    // Optimistic update
-    setUpdatingId(id);
-    const prevTasks = tasks;
-    setTasks((prev) =>
-      prev.map((t) => (t[0] === id ? [t[0], t[1], t[2], nextStatus, t[4]] : t))
-    );
+// Danjgo
+const toggleStatus = async (id, currentStatus) => {
+  const nextStatus =
+    String(currentStatus || "").trim().toLowerCase() === "pending"
+      ? "Completed"
+      : "Pending";
 
-    try {
-      const res = await fetch(`http://localhost:5000/update/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: nextStatus }),
-      });
-      if (!res.ok) {
-        const text = await res.text();
-        throw new Error(`HTTP ${res.status}: ${text}`);
-      }
-    } catch (e) {
-      console.error(e);
-      setErr(e.message || "Failed to update");
-      setTasks(prevTasks); // rollback on error
-    } finally {
-      setUpdatingId(null);
+  setUpdatingId(id);
+  const prevTasks = tasks;
+
+  // Optimistic update using object spread
+  setTasks((prev) =>
+    prev.map((t) =>
+      t.id === id ? { ...t, status: nextStatus } : t
+    )
+  );
+
+  try {
+    const res = await fetch(`http://localhost:5000/todo/update/${id}/`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status: nextStatus }),
+    });
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`HTTP ${res.status}: ${text}`);
     }
-  };
+  } catch (e) {
+    console.error(e);
+    setErr(e.message || "Failed to update");
+    setTasks(prevTasks); // rollback
+  } finally {
+    setUpdatingId(null);
+  }
+};
 
-  // Delete task
-  const deleteTask = async (id) => {
-    setDeletingId(id);
-    const prevTasks = tasks;
-    // Optimistic remove
-    setTasks((prev) => prev.filter((t) => t[0] !== id));
+  // Delete task Flask
+//   const deleteTask = async (id) => {
+//     setDeletingId(id);
+//     const prevTasks = tasks;
+//     // Optimistic remove
+//     setTasks((prev) => prev.filter((t) => t[0] !== id));
+//
+//     try {
+//       const res = await fetch(`http://localhost:5000/todo/del/${id}/`, {
+//         method: "DELETE",
+//       });
+//       if (!res.ok) {
+//         const text = await res.text();
+//         throw new Error(`HTTP ${res.status}: ${text}`);
+//       }
+//     } catch (e) {
+//       console.error(e);
+//       setErr(e.message || "Failed to delete");
+//       setTasks(prevTasks);
+//     } finally {
+//       setDeletingId(null);
+//     }
+//   };
 
-    try {
-      const res = await fetch(`http://localhost:5000/del/${id}`, {
-        method: "DELETE",
-      });
-      if (!res.ok) {
-        const text = await res.text();
-        throw new Error(`HTTP ${res.status}: ${text}`);
-      }
-    } catch (e) {
-      console.error(e);
-      setErr(e.message || "Failed to delete");
-      setTasks(prevTasks);
-    } finally {
-      setDeletingId(null);
+// Dangjo
+const deleteTask = async (id) => {
+  setDeletingId(id);
+  const prevTasks = tasks;
+
+  // Optimistic remove
+  setTasks((prev) => prev.filter((t) => t.id !== id));
+
+  try {
+    const res = await fetch(`http://localhost:5000/todo/del/${id}/`, {
+      method: "DELETE",
+    });
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`HTTP ${res.status}: ${text}`);
     }
-  };
+  } catch (e) {
+    console.error(e);
+    setErr(e.message || "Failed to delete");
+    setTasks(prevTasks); // rollback
+  } finally {
+    setDeletingId(null);
+  }
+};
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
@@ -108,9 +170,13 @@ export default function Home() {
               ) : (
                 tasks.map((task) => {
                   // task format: [id, title, description, status, created_at]
-                  const [id, title, description, statusRaw, createdAtRaw] = task;
-                  const status = String(statusRaw || "").trim();
-                  const isPending = status.toLowerCase() === "pending";
+//                   const [id, title, description, statusRaw, createdAtRaw] = task;
+//                   const status = String(statusRaw || "").trim();
+//                   const isPending = status.toLowerCase() === "pending";
+
+                const { id, title, description, status: statusRaw, created_at: createdAtRaw } = task;
+                const status = String(statusRaw || "").trim();
+                const isPending = status.toLowerCase() === "pending";
 
                   const badgeClasses = isPending
                     ? "bg-orange-100 text-orange-700"
