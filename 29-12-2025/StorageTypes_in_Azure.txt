@@ -1,0 +1,95 @@
+📬 1. Queue Storage
+What it is:
+A simple message queue that allows one part of an application to send messages to another.
+Where it is used:
+Great for decoupling systems — when you don’t want two systems to talk directly.
+✅ Real‑Life Example
+E-commerce order processing:
+
+A customer places an order on a website.
+The website drops a message in Queue Storage: “Order #1234 placed.”
+A background processing service (like Azure Functions) reads the message and processes payment, stock check, invoices, etc.
+
+This helps the website stay fast and not slow down during processing.
+
+📊 2. Table Storage
+What it is:
+A NoSQL key-value store used for storing structured, non-relational data.
+Where it is used:
+When you need fast lookups without complex relational queries.
+✅ Real‑Life Example
+Storing IoT device states:
+
+A company has thousands of sensors sending temperature or humidity data.
+Each sensor entry looks like:
+
+DeviceID
+Timestamp
+Status (On/Off)
+Temperature
+
+
+
+Table Storage is cheap, quick, and perfect for this type of simple structured data.
+
+🗂️ 3. Blob Storage
+Blob = “Binary Large Object” — used for storing unstructured files.
+Azure provides three blob types:
+
+📦 3.1 Block Blobs
+Used for:
+Large files you upload/download in chunks.
+✔ Real‑Life Example
+Storing videos, photos, backups
+For example:
+
+A media streaming app stores movie files in Block Blobs
+A company stores daily backup files (ZIP, ISO, logs, PDFs)
+
+Block Blobs give fast uploading by splitting the file into blocks.
+
+🧾 3.2 Append Blobs
+Used for:
+Data that grows over time by adding new entries.
+✔ Real‑Life Example
+Application logging
+Suppose you have:
+
+Web servers
+API gateways
+Background services
+
+Each one writes logs every few seconds.
+Append Blobs allow writing at the end without modifying old data — perfect for logs.
+
+💽 3.3 Page Blobs
+Used for:
+Random read/write operations with high speed.
+✔ Real‑Life Example
+Virtual Machine Disks
+When you create an Azure VM, its operating system disk and data disks are stored as Page Blobs.
+They allow:
+
+Fast random reads
+Fast random writes
+
+Same for Azure SQL Database underlying storage.
+
+📁 4. File Storage
+What it is:
+A fully managed shared drive you can mount via SMB 3.0 protocol.
+✔ Real‑Life Example
+Replacing on-prem file servers
+Scenario:
+
+Your office has a shared network drive: \\companyshare\documents
+You want to migrate this to the cloud
+Azure File Storage gives the same shared folder experience
+Employees can map it as a drive in Windows, Mac, or Linux
+
+It supports:
+
+Shared folders
+Departmental file shares
+Home directories
+
