@@ -1,4 +1,4 @@
-# Comparison of IaaS, PaaS, SaaS and Storage Across AWS, Azure, and GCP, and VM Creation Steps
+# Comparison Cloud File
 
 Cloud platforms like AWS, Azure, and GCP offer similar service models but with different naming, ecosystem depth, and tooling. This document compares IaaS, PaaS, SaaS, storage, and shows how to create a VM on all three in three high-level steps.
 
